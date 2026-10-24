@@ -1,0 +1,6 @@
+.aio-cache/
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+*.tmp

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find the Frog · FrogWeb</title>
+  <meta name="description" content="Interactive: six real photographs of wild frogs in perfect camouflage. Click where you think each frog is hiding and see how sharp your eyes really are.">
+  <meta name="theme-color" content="#17402a">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 48'%3E%3Cellipse cx='32' cy='31' rx='24' ry='15' fill='%2374c69d'/%3E%3Ccircle cx='19' cy='15' r='11' fill='%23b7e4c7'/%3E%3Ccircle cx='45' cy='15' r='11' fill='%23b7e4c7'/%3E%3Ccircle cx='19' cy='15' r='5.5' fill='%2314231a'/%3E%3Ccircle cx='45' cy='15' r='5.5' fill='%2314231a'/%3E%3Cpath d='M20 33q12 9 24 0' fill='none' stroke='%2314231a' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="find">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="FrogWeb home">
+        <svg class="brand-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 48" aria-hidden="true">
+          <ellipse cx="32" cy="31" rx="24" ry="15" fill="#74c69d"/>
+          <circle cx="19" cy="15" r="11" fill="#b7e4c7"/>
+          <circle cx="45" cy="15" r="11" fill="#b7e4c7"/>
+          <circle cx="19" cy="15" r="5.5" fill="#14231a"/>
+          <circle cx="45" cy="15" r="5.5" fill="#14231a"/>
+          <circle cx="21" cy="13" r="1.8" fill="#fff"/>
+          <circle cx="47" cy="13" r="1.8" fill="#fff"/>
+          <path d="M20 33q12 9 24 0" fill="none" stroke="#14231a" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-name">Frog<span class="brand-accent">Web</span></span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="index.html" data-nav="home">Home</a>
+        <a href="about.html" data-nav="about">About</a>
+        <a href="families.html" data-nav="families">Families</a>
+        <a href="species.html" data-nav="species">Species</a>
+        <a href="gallery.html" data-nav="gallery">Gallery</a>
+        <a href="adaptations.html" data-nav="adaptations">Adaptations</a>
+        <a href="lifecycle.html" data-nav="lifecycle">Life cycle</a>
+        <a href="find.html" data-nav="find">Find the frog</a>
+        <a href="conservation.html" data-nav="conservation">Conservation</a>
+        <a href="credits.html" data-nav="credits">Credits</a>
+      </nav>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="page-hero" aria-label="Page introduction">
+      <div class="container">
+        <p class="overline">Interactive</p>
+        <h1>Find the frog</h1>
+        <p class="lede">Six frogs, six flawless disguises — not one of them sitting out in the open. Study each photograph, then click the spot where you think the frog is hiding. The closer your click lands, the more points you score.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="find-stage reveal" id="find-stage">
+          <div class="find-hud">
+            <p class="find-status"><span id="find-round-label">Round 1 of 6</span><span class="find-score-wrap">Score <strong id="find-score">0</strong></span></p>
+            <button class="btn btn-ghost find-giveup" id="find-giveup" type="button">I give up — show me</button>
+          </div>
+          <div class="find-frame">
+            <span class="find-canvas" id="find-canvas">
+              <img id="find-img" src="images/find-spring-peeper-grass.jpg" alt="A wild frog is hiding somewhere in this photograph — click on the frog" draggable="false">
+              <span class="find-marker" id="find-marker" hidden aria-hidden="true"></span>
+              <span class="find-ring" id="find-ring" hidden aria-hidden="true"></span>
+            </span>
+          </div>
+          <div class="find-feedback" id="find-feedback" hidden>
+            <p class="find-verdict" id="find-verdict"></p>
+            <p class="find-reveal" id="find-reveal"></p>
+            <button class="btn btn-primary find-next" id="find-next" type="button">Next frog</button>
+          </div>
+          <div class="find-results" id="find-results" hidden></div>
+        </div>
+
+        <p class="find-note">All six photographs are of real wild frogs, contributed to iNaturalist under CC BY-NC licenses — nothing staged, nothing photoshopped. Each reveal ring shows exactly where the frog was sitting when the picture was taken; the photographers are credited on the <a href="credits.html">photo credits</a> page.</p>
+
+        <nav class="page-pager reveal" aria-label="Page navigation">
+          <a href="lifecycle.html"><span class="pager-dir">Previous</span><span class="pager-title">Life cycle</span></a>
+          <a class="next" href="conservation.html"><span class="pager-dir">Next</span><span class="pager-title">Conservation</span></a>
+        </nav>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand brand-footer" href="index.html">
+        <svg class="brand-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 48" aria-hidden="true">
+          <ellipse cx="32" cy="31" rx="24" ry="15" fill="#74c69d"/>
+          <circle cx="19" cy="15" r="11" fill="#b7e4c7"/>
+          <circle cx="45" cy="15" r="11" fill="#b7e4c7"/>
+          <circle cx="19" cy="15" r="5.5" fill="#14231a"/>
+          <circle cx="45" cy="15" r="5.5" fill="#14231a"/>
+          <path d="M20 33q12 9 24 0" fill="none" stroke="#14231a" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-name">Frog<span class="brand-accent">Web</span></span>
+      </a>
+      <p class="footer-note">A big field guide in photographs, built for the love of all frogs. Photos via iNaturalist under the licenses listed in the credits.</p>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="about.html">About</a>
+        <a href="families.html">Families</a>
+        <a href="species.html">Species</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="find.html">Find the frog</a>
+        <a href="conservation.html">Conservation</a>
+        <a href="credits.html">Credits</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
